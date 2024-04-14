@@ -1,4 +1,4 @@
-/* Basic styles */
+/* Basic styles
 body {
     margin: 0;
     padding: 20px;
@@ -14,17 +14,17 @@ body {
     margin-bottom: 20px;
   }
   
-/* Photo grid styles */
-.image-container {
-    display: flex; /* Make container a flexbox */
-    align-items: center; /* Vertically align image content */
-    justify-content: center; /* Horizontally align image content */
-    overflow: hidden; /* Hide overflowing parts of the image */
+Photo grid styles */
+/* .image-container {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden; 
   }
   
   .img-fluid {
-    /* Bootstrap class already provides responsive sizing */
-    width: 40%; /* Set width to 100% of its container */
-    height: 40%; /* Set height to 100% of its container */
-    object-fit: cover; /* Crop image to fit container while maintaining aspect ratio */
-  }
+    
+    width: 40%; 
+    height: 40%; 
+    object-fit: cover; 
+  } */
