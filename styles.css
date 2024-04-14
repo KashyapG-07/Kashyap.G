@@ -1,0 +1,144 @@
+/* Basic reset styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #080808;
+  }
+
+  .homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80vw;
+    min-height: 70vh;
+    box-shadow: 0 12px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 1.2rem;
+    background-image: url(Designer.png);
+    background-size: cover;
+    margin: 0 9rem;
+  }
+  
+  .homepage h1 {
+    color: #ffffff;
+    font-size: 4.5vw;
+  }
+
+  /* Header styles */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #080808;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: white;
+  }
+  
+  nav {
+    list-style: none;
+    padding: 0;
+    color: #080808;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 1rem;
+    text-align: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #ffffff; /* Adjust color based on image */
+    padding: 0.5rem 1rem;
+  }
+  
+  nav a:hover {
+    background-color: #5d5d5d;
+    border-radius: 0.5rem;
+  }
+
+  .white-link a, /* Target anchor tags within the element */
+  a:visited {
+  color: white !important; /* Set white color with high priority */
+  text-decoration: none !important; /* Remove underline (optional) */
+}
+
+  
+  /* Main content styles */
+  main {
+    padding: 2rem;
+    background-color: #080808;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+
+  
+  p {
+    line-height: 1.5;
+    color: #ffffff;
+  }
+
+  .about-me{
+    margin: 4rem 10rem;
+    font-size: 1.3vw
+  }
+
+  .about-me h1{
+    font-size: 2.5vw;
+  }
+
+  .projects{
+    margin: 4rem 10rem;
+    font-size: 1.3vw
+  }
+
+  .projects h1{
+    font-size: 2.5vw;
+  }
+
+  .projects li{
+    display: flex;
+    color: #ffffff;
+    line-height: 2;
+  }
+
+  /* Responsive media queries */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav {
+      flex-direction: column;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  
+    nav li {
+      margin: 0.5rem 0;
+    }
+  
+    h1 {
+      font-size: 1.2rem;
+    }
+  
+    h2 {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Footer styles */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f0f0f0;
+  }
+  
