@@ -111,6 +111,26 @@ body {
 
   /* Responsive media queries */
   @media (max-width: 768px) {
+
+    .homepage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 80vw;
+      min-height: 30vh;
+      box-shadow: 0 12px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 1.2rem;
+      background-image: url(Designer.png);
+      background-size: cover;
+      margin: 0 2rem;
+    }
+
+    .homepage h1 {
+      font-size: 1.3rem;
+      margin: 0;
+      color: white;
+    }
+
     header {
       flex-direction: column;
       align-items: center;
@@ -118,20 +138,50 @@ body {
   
     nav {
       flex-direction: column;
+      display: flex;
       text-align: center;
+      justify-content: center;
+      align-items: center;
       margin-top: 1rem;
     }
   
     nav li {
-      margin: 0.5rem 0;
+      margin: 0.2rem 0;
+      
     }
+
+    p {
+      line-height: 1.5;
+      color: #ffffff;
+    }
+  
+    .about-me{
+      margin: 4rem 2rem;
+      font-size: 2vw
+    }
+  
+    .about-me h1{
+      font-size: 2.5vw;
+    }
+  
+    .projects{
+      margin: 4rem 2rem;
+      font-size: 2vw
+    }
+  
+    .projects h1{
+      font-size: 2.5vw;
+    }
+  
+    .projects li{
+      display: flex;
+      color: #ffffff;
+      line-height: 2;
+    }
+  
   
     h1 {
       font-size: 1.2rem;
-    }
-  
-    h2 {
-      font-size: 1rem;
     }
   }
   
