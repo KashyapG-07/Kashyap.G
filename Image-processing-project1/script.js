@@ -1,32 +1,76 @@
+// Update the checkReddish function to check if the image is reddish
 function checkReddish() {
-  const imageData = document.getElementById("food_1").src; // Get image data
-  fetch('/make-reddish', { // Send data to server
-    method: 'POST',
-    body: JSON.stringify({imageData})
-  })
-  .then(response => response.blob())
-  .then(blob => {
-    const url = URL.createObjectURL(blob);
-    document.getElementById("food_1").src = url; // Update image source
-  });
+  // Get the image element
+  const imageElement = document.getElementById("food_1");
+  
+  // Create a canvas element
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+
+  // Set canvas dimensions to match the image
+  canvas.width = imageElement.width;
+  canvas.height = imageElement.height;
+
+  // Draw the image onto the canvas
+  context.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
+
+  // Get image data from the canvas
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+
+  // Calculate the sum of red channel intensities
+  let sumRed = 0;
+  for (let i = 0; i < data.length; i += 4) {
+    sumRed += data[i]; // Red channel intensity
+  }
+
+  // Calculate average intensity for red channel
+  const avgRed = sumRed / (data.length / 4);
+
+  // Define threshold for reddishness detection
+  const redThreshold = 150; // Adjust as needed
+
+  // Check if the average red intensity exceeds the threshold
+  if (avgRed > redThreshold) {
+    alert("The image appears reddish.");
+  } else {
+    alert("The image does not appear reddish.");
+  }
+  
 }
 
+// Update the makeReddish function to properly manipulate the image data
 function makeReddish() {
-  const image = new ImageJS(document.getElementById("food_2"));
+  // Get the image element
+  const imageElement = document.getElementById("food_2");
 
-  // Get image data (library specific function)
-  const imageData = image.getImageData();
+  // Create a canvas element
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
 
-  // Loop through pixels and adjust red value (limited approach)
+  // Set canvas dimensions to match the image
+  canvas.width = imageElement.width;
+  canvas.height = imageElement.height;
+
+  // Draw the image onto the canvas
+  context.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
+
+  // Get image data from the canvas
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+  // Manipulate image data to make it reddish
   for (let i = 0; i < imageData.data.length; i += 4) {
-    // Increase red value slightly, clamp to prevent overflow (0-255)
+    // Increase the red value slightly
     imageData.data[i] = Math.min(255, imageData.data[i] + 20);
   }
 
-  // Update image source with modified data (might not work in all browsers)
-  image.putImageData(imageData);
-  document.getElementById("food_2").src = image.toDataURL();
+  // Put the modified image data back onto the canvas
+  context.putImageData(imageData, 0, 0);
+
+  // Update the image source with the canvas data URL
+  imageElement.src = canvas.toDataURL();
 }
+
 
 function dupli() {
   const originalImage = document.getElementById("duplimage");
