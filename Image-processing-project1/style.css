@@ -19,3 +19,14 @@ body {
 .col{
   margin: 1.5rem 0;
 }
+
+.col button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem 0.1rem
+}
+
+h1{
+  color: white;
+}
