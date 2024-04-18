@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Back to top button styles */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #113604;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+.back-to-top:hover {
+  background-color: #00821e;
+}
+
 body {
     margin: 0;
     padding: 0;

@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="styles.css"> </head>
+  <link rel="stylesheet" href="styles.css"> 
+  <script src="script.js" defer></script>
+</head>
 <body>
   <header>
     <h1>Kashyap G</h1>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Me</a></li>
-        <li><a href="#">Projects</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <div class="homepage">
+    <div id="home" class="homepage">
       <h1>Welcome to my Portfolio</h1>
     </div>
-    <section class="about-me">
+    <section id="about" class="about-me">
       <h1>About Me</h1>
       <p>Hi,
         I am Kashyap. I am an MCA student at Amrita Vishwa Vidyapeetham.
@@ -30,16 +32,16 @@
         This portfolio is been developed using HTML and CSS. So dive in and check more about me here.</p>
     </section>
 
-    <section class="projects">
+    <section id="projects" class="projects">
       <h1>Projects</h1>
       <ul>
-        <li><a href="Image-processing-project1/index.html" class="white-link" target="_blank">Image Processing</a></li>
-        <li><a href="Tic-Tac-toe-Project2/index.html" class="white-link" target="_blank">Tic-Tac-Toe Game</a></li>
-        <li><a href="Wordl-game-Project3/index.html" class="white-link" target="_blank">Wordle Game</a></li>
+        <li><a href="Image-processing-project1/index.html" class="white-link">Image Processing</a></li>
+        <li><a href="Tic-Tac-toe-Project2/index.html" class="white-link">Tic-Tac-Toe Game</a></li>
+        <li><a href="Wordl-game-Project3/index.html" class="white-link">Wordle Game</a></li>
       </ul>
     </section>
+  </main>
 
-    </main>
-
+  <button class="back-to-top" onclick="scrollToTop()">Top</button>
 </body>
 </html>
