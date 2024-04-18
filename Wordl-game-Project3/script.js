@@ -20,6 +20,25 @@ window.onload = function(){
     intialize();
 }
 
+// Add event listener to the "How to Play" button
+document.getElementById("howToPlayBtn").addEventListener("click", function() {
+    // Show the modal
+    document.getElementById("instructionsModal").style.display = "block";
+});
+
+// Add event listener to close the modal when the close button is clicked
+document.getElementsByClassName("close")[0].addEventListener("click", function() {
+    // Hide the modal
+    document.getElementById("instructionsModal").style.display = "none";
+});
+
+// Close the modal if the user clicks outside of it
+window.addEventListener("click", function(event) {
+    if (event.target == document.getElementById("instructionsModal")) {
+        document.getElementById("instructionsModal").style.display = "none";
+    }
+});
+
 
 function intialize() {
 
@@ -38,7 +57,7 @@ function intialize() {
     // Create the key board
     let keyboard = [
         ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
-        ["A", "S", "D", "F", "G", "H", "J", "K", "L", " "],
+        ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
         ["Enter", "Z", "X", "C", "V", "B", "N", "M", "⌫" ]
     ]
 

@@ -1,23 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wordle Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
 
-<html>
-    <head>
-        <title>Wordle</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+<body>
+    <h1 id="title">Wordle Game</h1>
+    <hr>
+    <br>
+    <button id="howToPlayBtn">How to Play</button> <!-- Button to display instructions -->
+    <div id="instructionsModal" class="modal"> <!-- Modal for instructions -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>How to Play</h1>
+            <p>
+                    <b>Guess the Wordle in 6 tries.</b></br></br>
+                    Each guess must be a valid <b>5-letter word.</b></br>
+                    The color of the tiles will change to show how close your guess was to the word.</br></br>
 
-        <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
-    </head>
-
-    <body>
-        <h1 id="title">Wordle</h1>
-        <hr>
-        <br>
-        <div id="board">
+                    -If the letter entered is <b>Green</b>, then it is in the right spot.</br>
+                    -If the letter entered is <b>Yellow</b>, then it is in the word but in the wrong spot.</br>
+                    -If the letter entered is <b>Grey</b>, then it is not in the word in any spot.</br></br>
+                
+                <b>Restart:</b></br></br>
+                   - At any point, you can start a new game by refreshing the page.</p></br></br>
         </div>
+    </div>
 
-        <br>
-        <h1 id="answer"></h1>
-    </body>
+    <div id="board"></div>
+    <br>
+    <h1 id="answer"></h1>
+</body>
 </html>
