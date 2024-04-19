@@ -100,6 +100,8 @@ function resetColor(imageElement) {
   imageElement.src = "beautiful-nature-mountain-scenery-with-flowers-free-photo.jpg";
 }
 
+//haha
+
 
 function applyColor(imageData, red, green, blue) {
   // Manipulate image data to make it reddish, bluish, or greenish
