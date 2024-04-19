@@ -156,32 +156,73 @@ function createAvatar() {
 }
 
 
+var canvas = document.createElement('canvas');
+var ctx = canvas.getContext('2d');
+
 function grayscale() {
-  var image = document.getElementById('grayscale');
-  var canvas = document.createElement('canvas');
-  canvas.width = image.width;
-  canvas.height = image.height;
-  var ctx = canvas.getContext('2d');
-  ctx.drawImage(image, 0, 0);
+    var image = document.getElementById('grayscale');
+    var originalWidth = image.width;
+    var originalHeight = image.height;
 
-  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  var data = imageData.data;
+    // Set the canvas size based on the original image dimensions
+    canvas.width = originalWidth;
+    canvas.height = originalHeight;
 
-  for (var i = 0; i < data.length; i += 4) {
-      var r = data[i];
-      var g = data[i + 1];
-      var b = data[i + 2];
-      var grayscale = 0.2126 * r + 0.7152 * g + 0.0722 * b; // Using luminance method
+    // Draw the original image on the canvas
+    ctx.drawImage(image, 0, 0, originalWidth, originalHeight);
 
-      // Set the grayscale value for all color channels
-      data[i] = grayscale; // Red channel
-      data[i + 1] = grayscale; // Green channel
-      data[i + 2] = grayscale; // Blue channel
-  }
+    var imageData = ctx.getImageData(0, 0, originalWidth, originalHeight);
+    var data = imageData.data;
 
-  // Put the modified image data back onto the canvas
-  ctx.putImageData(imageData, 0, 0);
+    for (var i = 0; i < data.length; i += 4) {
+        var r = data[i];
+        var g = data[i + 1];
+        var b = data[i + 2];
+        var grayscale = 0.2126 * r + 0.7152 * g + 0.0722 * b; // Using luminance method
 
-  // Replace the original image with the grayscale version
-  image.src = canvas.toDataURL();
+        // Set the grayscale value for all color channels
+        data[i] = grayscale; // Red channel
+        data[i + 1] = grayscale; // Green channel
+        data[i + 2] = grayscale; // Blue channel
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+
+    image.src = canvas.toDataURL();
 }
+
+
+function generateQR(imagePath, canvasId) {
+  const qrCode = new QRCodeStyling({
+    width: 170,
+    height: 170,
+    type: "svg",
+    data: imagePath,
+  });
+
+  const canvas = document.getElementById(canvasId);
+  canvas.innerHTML = ""; // Clear previous QR code
+  qrCode.append(canvas); // Display QR code for the image path
+}
+
+function applyFilter(filter) {
+  var image = document.getElementById('filter');
+
+  switch (filter) {
+      case 'none':
+          image.style.filter = 'none';
+          break;
+      case 'grayscale':
+          image.style.filter = 'grayscale(100%)';
+          break;
+      case 'sepia':
+          image.style.filter = 'sepia(100%)';
+          break;
+      case 'invert':
+          image.style.filter = 'invert(100%)';
+          break;
+      default:
+          image.style.filter = 'none';
+  }
+}
+

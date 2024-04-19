@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="script.js"></script>
+    <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+
 </head>
 <body style="background-color: #080808;">
     <h1 style="text-align: center;">Bootstrap Photo Album</h1>
     <div class="container">
 
-      <div class="row row-cols-3 gap-5">
+      <div class="row row-cols-3 gap-2">
         <div class="col">
           <img src="360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg" alt="Image 1" class="img-thumbnail" id="food_1"></br>
           <button type="button" class="btn btn-primary" onclick="checkReddish()">Check Reddish</button>
@@ -41,17 +43,34 @@
           <canvas id="avatarCanvas" width="100" height="100"></canvas>
         </div>        
       </div>
-      <div class="row row-cols-3 gap-5">
+      <div class="row row-cols-3 gap-2">
         <div class="col">
-          <img src="images.jpeg" alt="Image 7" class="img-thumbnail" id="grayscale"></br>
+          <img src="bsr-focus-nature-hero.jpg" alt="Image 7" class="img-thumbnail" id="grayscale"></br>
           <button type="button" class="btn btn-primary" onclick="grayscale()">Grayscale</button>
+        </div>
+        <div class="col">
+          <img src="istockphoto-1317323736-612x612.jpg" alt="Image 7" class="img-thumbnail" id="filter"></br></br>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary">
+              <input type="radio" name="filterOption" id="filterNone" onchange="applyFilter('none')"> None
+              </label>
+              <label class="btn btn-primary">
+              <input type="radio" name="filterOption" id="filterGrayscale" onchange="applyFilter('grayscale')"> Grayscale
+              </label>
+              <label class="btn btn-primary">
+              <input type="radio" name="filterOption" id="filterSepia" onchange="applyFilter('sepia')"> Sepia
+              </label>
+              <label class="btn btn-primary">
+              <input type="radio" name="filterOption" id="filterInvert" onchange="applyFilter('invert')"> Invert
+              </label>
+          </div>
+      </div>      
+        <div class="col">
+          <img src="images.jpeg" alt="Image 7" class="img-thumbnail" id="qr"></br></br>
+          <div id="canvas5" class="canvas"></div>
+          <button type="button" class="btn btn-primary" onclick="generateQR('images.jpeg', 'canvas5')">Generate QR</button>
         </div>       
       </div>
     </div>
-      
-    
-  
-
-
 </body>
 </html>

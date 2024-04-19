@@ -1,32 +1,31 @@
 body {
-    margin: 0;
-    padding: 20px;
-    font-family: sans-serif;
-    
-  }
-  
-.col img {
-    max-width: 30vw;
-    max-height: 30vh;
-    background-size: cover;
-    border-radius: 0.8rem;
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
 }
 
-.container{
+.col img {
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  border-radius: 0.8rem;
+}
+
+.container {
   margin: 4rem 0;
 }
 
-.col{
+.col {
   margin: 1.5rem 0;
 }
 
-.col button{
+.col button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.8rem 0.1rem
+  margin: 0.8rem 0.1rem;
 }
 
-h1{
+h1 {
   color: white;
 }
