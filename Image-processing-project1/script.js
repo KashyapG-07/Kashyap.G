@@ -39,14 +39,16 @@ function checkReddish() {
   
 }
 
-// Update the makeReddish function to properly manipulate the image data
-function makeReddish() {
+function applyColorEffect() {
+  // Get the selected radio button value
+  var colorOption = document.querySelector('input[name="colorOption"]:checked').value;
+
   // Get the image element
-  const imageElement = document.getElementById("food_2");
+  var imageElement = document.getElementById("food_2");
 
   // Create a canvas element
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
+  var canvas = document.createElement('canvas');
+  var context = canvas.getContext('2d');
 
   // Set canvas dimensions to match the image
   canvas.width = imageElement.width;
@@ -56,12 +58,21 @@ function makeReddish() {
   context.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
 
   // Get image data from the canvas
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
-  // Manipulate image data to make it reddish
-  for (let i = 0; i < imageData.data.length; i += 4) {
-    // Increase the red value slightly
-    imageData.data[i] = Math.min(255, imageData.data[i] + 20);
+  // Manipulate image data based on the selected option
+  switch (colorOption) {
+      case 'reddish':
+          applyColor(imageData, 20, 0, 0); // Make reddish
+          break;
+      case 'bluish':
+          applyColor(imageData, 0, 0, 20); // Make bluish
+          break;
+      case 'greenish':
+          applyColor(imageData, 0, 20, 0); // Make greenish
+          break;
+      default:
+          // Default case
   }
 
   // Put the modified image data back onto the canvas
@@ -70,6 +81,17 @@ function makeReddish() {
   // Update the image source with the canvas data URL
   imageElement.src = canvas.toDataURL();
 }
+
+function applyColor(imageData, red, green, blue) {
+  // Manipulate image data to make it reddish, bluish, or greenish
+  for (var i = 0; i < imageData.data.length; i += 4) {
+      // Modify the red, green, and blue values
+      imageData.data[i] = Math.min(255, imageData.data[i] + red);
+      imageData.data[i + 1] = Math.min(255, imageData.data[i + 1] + green);
+      imageData.data[i + 2] = Math.min(255, imageData.data[i + 2] + blue);
+  }
+}
+
 
 
 function dupli() {
