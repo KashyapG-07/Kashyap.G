@@ -63,13 +63,13 @@ function applyColorEffect() {
   // Manipulate image data based on the selected option
   switch (colorOption) {
       case 'reddish':
-          applyColor(imageData, 20, 0, 0); // Make reddish
+          applyColor(imageData, 120, 0, 0); // Make reddish
           break;
       case 'bluish':
-          applyColor(imageData, 0, 0, 20); // Make bluish
+          applyColor(imageData, 0, 0, 120); // Make bluish
           break;
       case 'greenish':
-          applyColor(imageData, 0, 20, 0); // Make greenish
+          applyColor(imageData, 0, 120, 0); // Make greenish
           break;
       default:
           // Default case
