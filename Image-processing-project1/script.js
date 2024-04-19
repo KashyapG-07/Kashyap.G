@@ -63,14 +63,17 @@ function applyColorEffect() {
   // Manipulate image data based on the selected option
   switch (colorOption) {
       case 'reddish':
-          applyColor(imageData, 120, 0, 0); // Make reddish
+          applyColor(imageData, 100, 0, 0); // Make reddish
           break;
       case 'bluish':
-          applyColor(imageData, 0, 0, 120); // Make bluish
+          applyColor(imageData, 0, 0, 100); // Make bluish
           break;
       case 'greenish':
-          applyColor(imageData, 0, 120, 0); // Make greenish
+          applyColor(imageData, 0, 100, 0); // Make greenish
           break;
+      case 'reset':
+          resetColor(imageElement); // Reset color
+          return; // Exit the function after resetting
       default:
           // Default case
   }
@@ -81,6 +84,22 @@ function applyColorEffect() {
   // Update the image source with the canvas data URL
   imageElement.src = canvas.toDataURL();
 }
+
+function applyColor(imageData, red, green, blue) {
+  // Manipulate image data to make it reddish, bluish, or greenish
+  for (var i = 0; i < imageData.data.length; i += 4) {
+      // Modify the red, green, and blue values
+      imageData.data[i] = Math.min(255, imageData.data[i] + red);
+      imageData.data[i + 1] = Math.min(255, imageData.data[i + 1] + green);
+      imageData.data[i + 2] = Math.min(255, imageData.data[i + 2] + blue);
+  }
+}
+
+function resetColor(imageElement) {
+  // Reset image to its original state
+  imageElement.src = "beautiful-nature-mountain-scenery-with-flowers-free-photo.jpg";
+}
+
 
 function applyColor(imageData, red, green, blue) {
   // Manipulate image data to make it reddish, bluish, or greenish
